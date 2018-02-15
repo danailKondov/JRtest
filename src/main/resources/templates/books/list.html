@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="ru"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>List Book</title>
+</head>
+<body>
+<h1 layout:fragment="pageHead">Мой список книг</h1>
+<div layout:fragment="content">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>ISBN</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each='book : ${books}'>
+            <td th:text='${book.title}'></td>
+            <td th:text='${book.autor}'></td>
+            <td th:text='${book.isbn}'></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,7 +1,9 @@
 package ru.danailkondov.JRtest.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -22,7 +24,9 @@ public class StartAction {
      * @return строка как ответ на запрос
      */
     @RequestMapping("/")
-    public @ResponseBody String helloWorld() {
-        return "Hello world!";
+    public @ResponseBody String startAction(@RequestParam(value="name", required=false, defaultValue="World") String name,
+                                            Model uiModel) {
+        uiModel.addAttribute("name", name);
+        return "index";
     }
 }
